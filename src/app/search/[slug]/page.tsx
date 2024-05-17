@@ -11,7 +11,7 @@ export default async function SearchPage({
     const data = await getSearchResults(params.slug);
 
     return (
-        <main className="container mx-auto pt-8 ">
+        <main className="container mx-auto pt-8 flex-grow">
             <h5 className="text-center text-4xl font-semibold pb-4">
                 Arama Sonuçları
             </h5>

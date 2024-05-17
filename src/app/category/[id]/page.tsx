@@ -9,7 +9,7 @@ export default async function SubCategoryPage({
 }) {
     const data = await getSubCategory(params.id);
     return (
-        <main className="container mx-auto pt-8">
+        <main className="container mx-auto pt-8 flex-grow">
             <h5 className="text-center text-4xl font-semibold pb-4">
                 {data.Result.CategoryName}
             </h5>

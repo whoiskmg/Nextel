@@ -111,7 +111,7 @@ export default async function ProductsPage({
 
     const filteredImages = getFilteredImages(item.ImageSetList);
     return (
-        <main className=" container mx-auto pt-8">
+        <main className=" container mx-auto pt-8 flex-grow">
             <div className="lg:flex space-x-2 md:space-x-16">
                 <div className="flex flex-col items-center">
                     <div className="w-[270px] md:w-[370px] lg:w-[540px] carousel rounded-box">

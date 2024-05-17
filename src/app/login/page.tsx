@@ -7,6 +7,7 @@ export default function LogIn() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
+    const [succes, setSucces] = useState(Boolean);
 
     type Response = {
         Success: boolean;
@@ -33,9 +34,10 @@ export default function LogIn() {
             );
             const data: Response = await response.json();
             if (data.Success === true) {
+                setSucces(true);
                 setMessage(data.Message);
             } else {
-                console.error("Login failed:", response.status);
+                setSucces(false);
                 setMessage(data.Message);
             }
         } catch (error) {
@@ -44,7 +46,7 @@ export default function LogIn() {
     };
 
     return (
-        <main className="LogIn container mx-auto">
+        <main className="LogIn container mx-auto flex-grow">
             <div className="">
                 <div>
                     <h1 className="Header">Giriş Yap</h1>
@@ -105,12 +107,25 @@ export default function LogIn() {
                         </Link>
                     </h4>
                 </div>
-                {message != null ? (
-                    <p className="pt-2 text-lg">{message}</p>
-                ) : (
-                    <p></p>
-                )}
             </div>
+            {succes === true
+                ? message && (
+                      <div className="toast  whitespace-normal">
+                          <div className="alert alert-succes">
+                              <span>
+                                  New message arrived.
+                                  {message}
+                              </span>
+                          </div>
+                      </div>
+                  )
+                : message && (
+                      <div className="toast whitespace-normal">
+                          <div className="alert alert-warning">
+                              <span>{message}</span>
+                          </div>
+                      </div>
+                  )}
         </main>
     );
 }

@@ -10,7 +10,7 @@ export default async function ProductsPage({
     const data = await getProducts(params.id);
 
     return (
-        <main className="container mx-auto pt-8 ">
+        <main className="container mx-auto pt-8 flex-grow">
             <h5 className="text-center text-4xl font-semibold pb-4">
                 {data.Result.CategoryName}
             </h5>
